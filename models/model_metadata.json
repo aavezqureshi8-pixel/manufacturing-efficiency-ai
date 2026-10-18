@@ -1,0 +1,496 @@
+{
+  "created": "2026-10-17T18:56:10",
+  "libraries": {
+    "python": "3.12.3",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.2",
+    "numpy": "2.4.4"
+  },
+  "class_order": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "raw_inputs": [
+    "Temperature_C",
+    "Vibration_Hz",
+    "Power_Consumption_kW",
+    "Network_Latency_ms",
+    "Packet_Loss_%",
+    "Quality_Control_Defect_Rate_%",
+    "Production_Speed_units_per_hr",
+    "Predictive_Maintenance_Score",
+    "Error_Rate_%",
+    "Operation_Mode"
+  ],
+  "operation_modes": [
+    "Active",
+    "Idle",
+    "Maintenance"
+  ],
+  "network_reference": {
+    "lat_mean": 25.555621514285715,
+    "lat_std": 14.120799374255071,
+    "loss_mean": 2.491542628571429,
+    "loss_std": 1.444037935376032,
+    "good_max": -0.6277939839785279,
+    "fair_max": 0.6321560311674936
+  },
+  "feature_ranges": {
+    "Temperature_C": {
+      "min": 30.0,
+      "max": 89.999,
+      "median": 60.070499999999996,
+      "p01": 30.592,
+      "p99": 89.40100999999999
+    },
+    "Vibration_Hz": {
+      "min": 0.1,
+      "max": 5.0,
+      "median": 2.55,
+      "p01": 0.151,
+      "p99": 4.95
+    },
+    "Power_Consumption_kW": {
+      "min": 1.5,
+      "max": 10.0,
+      "median": 5.743,
+      "p01": 1.586,
+      "p99": 9.913009999999995
+    },
+    "Network_Latency_ms": {
+      "min": 1.0,
+      "max": 50.0,
+      "median": 25.575499999999998,
+      "p01": 1.50297,
+      "p99": 49.51401
+    },
+    "Packet_Loss_%": {
+      "min": 0.0,
+      "max": 5.0,
+      "median": 2.487,
+      "p01": 0.05,
+      "p99": 4.951
+    },
+    "Quality_Control_Defect_Rate_%": {
+      "min": 0.001,
+      "max": 10.0,
+      "median": 5.018,
+      "p01": 0.09899000000000001,
+      "p99": 9.901
+    },
+    "Production_Speed_units_per_hr": {
+      "min": 50.006,
+      "max": 499.997,
+      "median": 275.907,
+      "p01": 54.44489,
+      "p99": 495.47602
+    },
+    "Predictive_Maintenance_Score": {
+      "min": 0.0,
+      "max": 1.0,
+      "median": 0.501,
+      "p01": 0.01,
+      "p99": 0.991
+    },
+    "Error_Rate_%": {
+      "min": 0.0,
+      "max": 15.0,
+      "median": 7.513,
+      "p01": 0.15199000000000001,
+      "p99": 14.858
+    }
+  },
+  "feature_sets": {
+    "F1_raw_all": {
+      "numeric": [
+        "Temperature_C",
+        "Vibration_Hz",
+        "Power_Consumption_kW",
+        "Network_Latency_ms",
+        "Packet_Loss_%",
+        "Quality_Control_Defect_Rate_%",
+        "Production_Speed_units_per_hr",
+        "Predictive_Maintenance_Score",
+        "Error_Rate_%"
+      ],
+      "categorical": [
+        "Operation_Mode"
+      ],
+      "description": "All 9 raw measurements + Operation_Mode (includes the two label-defining columns)."
+    },
+    "F2_raw_plus_derived": {
+      "numeric": [
+        "Temperature_C",
+        "Vibration_Hz",
+        "Power_Consumption_kW",
+        "Network_Latency_ms",
+        "Packet_Loss_%",
+        "Quality_Control_Defect_Rate_%",
+        "Production_Speed_units_per_hr",
+        "Predictive_Maintenance_Score",
+        "Error_Rate_%",
+        "energy_per_unit",
+        "error_to_speed_ratio",
+        "network_stress_index"
+      ],
+      "categorical": [
+        "Operation_Mode"
+      ],
+      "description": "F1 + single-observation derived features (energy per unit, error-to-speed ratio, network stress index). DEPLOYED set."
+    },
+    "F3_context_only": {
+      "numeric": [
+        "Temperature_C",
+        "Vibration_Hz",
+        "Power_Consumption_kW",
+        "Network_Latency_ms",
+        "Packet_Loss_%",
+        "Quality_Control_Defect_Rate_%",
+        "Predictive_Maintenance_Score",
+        "network_stress_index"
+      ],
+      "categorical": [
+        "Operation_Mode"
+      ],
+      "description": "Sensors + network + defect rate + maintenance score + mode; WITHOUT Error_Rate_% and Production_Speed (tests the sensor/6G premise)."
+    },
+    "F4_context_plus_history": {
+      "numeric": [
+        "Temperature_C",
+        "Vibration_Hz",
+        "Power_Consumption_kW",
+        "Network_Latency_ms",
+        "Packet_Loss_%",
+        "Quality_Control_Defect_Rate_%",
+        "Predictive_Maintenance_Score",
+        "network_stress_index",
+        "Temperature_C__prev5_mean",
+        "Temperature_C__prev5_std",
+        "Vibration_Hz__prev5_mean",
+        "Vibration_Hz__prev5_std",
+        "Power_Consumption_kW__prev5_mean",
+        "Power_Consumption_kW__prev5_std",
+        "Network_Latency_ms__prev5_mean",
+        "Network_Latency_ms__prev5_std",
+        "Packet_Loss_%__prev5_mean",
+        "Packet_Loss_%__prev5_std",
+        "Quality_Control_Defect_Rate_%__prev5_mean",
+        "Quality_Control_Defect_Rate_%__prev5_std",
+        "Production_Speed_units_per_hr__prev5_mean",
+        "Production_Speed_units_per_hr__prev5_std",
+        "Error_Rate_%__prev5_mean",
+        "Error_Rate_%__prev5_std",
+        "speed_change_prev",
+        "minutes_since_prev_record",
+        "hour",
+        "day_of_week"
+      ],
+      "categorical": [
+        "Operation_Mode"
+      ],
+      "description": "F3 + past-only rolling statistics of the same machine (incl. previous Error_Rate_% / Speed) + time-of-day features."
+    },
+    "F5_rule_inputs_only": {
+      "numeric": [
+        "Error_Rate_%",
+        "Production_Speed_units_per_hr"
+      ],
+      "categorical": [],
+      "description": "ONLY Error_Rate_% and Production_Speed (shows these two columns are sufficient)."
+    }
+  },
+  "split": {
+    "train_rows": 70000,
+    "val_rows": 15000,
+    "test_rows": 15000,
+    "train_period": [
+      "2025-01-01 00:00:00",
+      "2025-02-18 14:39:00"
+    ],
+    "val_period": [
+      "2025-02-18 14:40:00",
+      "2025-03-01 00:39:00"
+    ],
+    "test_period": [
+      "2025-03-01 00:00:00",
+      "2025-03-10 10:39:00"
+    ],
+    "method": "chronological by file order, no shuffling"
+  },
+  "final_model": {
+    "model": "Random Forest",
+    "class_weight": "balanced",
+    "feature_set": "F2_raw_plus_derived",
+    "val_macro_f1": 0.9995958948299616,
+    "tied_candidates": [
+      {
+        "model": "Random Forest",
+        "class_weight": "balanced",
+        "macro_f1": 0.9995958948299616,
+        "f1_High": 0.9989594172736732
+      }
+    ],
+    "rule": "highest validation macro-F1 on F2_raw_plus_derived; models within 0.001 of the best are tied and ranked by High-class F1, then training time",
+    "hyperparameters": {
+      "bootstrap": "True",
+      "ccp_alpha": "0.0",
+      "class_weight": "balanced_subsample",
+      "criterion": "gini",
+      "max_depth": "12",
+      "max_features": "sqrt",
+      "max_leaf_nodes": "None",
+      "max_samples": "None",
+      "min_impurity_decrease": "0.0",
+      "min_samples_leaf": "5",
+      "min_samples_split": "2",
+      "min_weight_fraction_leaf": "0.0",
+      "monotonic_cst": "None",
+      "n_estimators": "100",
+      "n_jobs": "-1",
+      "oob_score": "False",
+      "random_state": "42",
+      "verbose": "0",
+      "warm_start": "False"
+    },
+    "trained_on": "training split only",
+    "validation_metrics": {
+      "n": 15000,
+      "accuracy": 0.9999333333333333,
+      "balanced_accuracy": 0.9993069993069993,
+      "macro_precision": 0.9998855311355311,
+      "macro_recall": 0.9993069993069993,
+      "macro_f1": 0.9995958948299616,
+      "weighted_f1": 0.9999333043716685,
+      "log_loss": 0.017369343994809227,
+      "brier": 0.002494208977516497,
+      "ece_top_label": 0.016608585950873736,
+      "confusion_matrix": [
+        [
+          11608,
+          0,
+          0
+        ],
+        [
+          0,
+          2911,
+          0
+        ],
+        [
+          0,
+          1,
+          480
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n         Low     1.0000    1.0000    1.0000     11608\n      Medium     0.9997    1.0000    0.9998      2911\n        High     1.0000    0.9979    0.9990       481\n\n    accuracy                         0.9999     15000\n   macro avg     0.9999    0.9993    0.9996     15000\nweighted avg     0.9999    0.9999    0.9999     15000\n",
+      "precision_Low": 1.0,
+      "recall_Low": 1.0,
+      "f1_Low": 1.0,
+      "support_Low": 11608,
+      "precision_Medium": 0.9996565934065934,
+      "recall_Medium": 1.0,
+      "f1_Medium": 0.9998282672162115,
+      "support_Medium": 2911,
+      "precision_High": 1.0,
+      "recall_High": 0.997920997920998,
+      "f1_High": 0.9989594172736732,
+      "support_High": 481
+    },
+    "test_metrics": {
+      "n": 15000,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "macro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "log_loss": 0.017324516936020377,
+      "brier": 0.0025408504071590446,
+      "ece_top_label": 0.016543947929471822,
+      "confusion_matrix": [
+        [
+          11728,
+          0,
+          0
+        ],
+        [
+          0,
+          2809,
+          0
+        ],
+        [
+          0,
+          0,
+          463
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n         Low     1.0000    1.0000    1.0000     11728\n      Medium     1.0000    1.0000    1.0000      2809\n        High     1.0000    1.0000    1.0000       463\n\n    accuracy                         1.0000     15000\n   macro avg     1.0000    1.0000    1.0000     15000\nweighted avg     1.0000    1.0000    1.0000     15000\n",
+      "precision_Low": 1.0,
+      "recall_Low": 1.0,
+      "f1_Low": 1.0,
+      "support_Low": 11728,
+      "precision_Medium": 1.0,
+      "recall_Medium": 1.0,
+      "f1_Medium": 1.0,
+      "support_Medium": 2809,
+      "precision_High": 1.0,
+      "recall_High": 1.0,
+      "f1_High": 1.0,
+      "support_High": 463
+    },
+    "uses_label_defining_inputs": [
+      "Error_Rate_%",
+      "Production_Speed_units_per_hr"
+    ],
+    "warning": "This model receives Error_Rate_% and Production_Speed, the two columns from which Efficiency_Status is derived. Its high score shows that it recovers the labelling rule; it is NOT evidence that sensors or the network predict efficiency."
+  },
+  "context_model": {
+    "model": "Random Forest",
+    "class_weight": "balanced",
+    "feature_set": "F3_context_only",
+    "val_macro_f1": 0.3329163232834664,
+    "tied_candidates": [
+      {
+        "model": "Random Forest",
+        "class_weight": "balanced",
+        "macro_f1": 0.3329163232834664,
+        "f1_High": 0.024229074889867842
+      }
+    ],
+    "rule": "highest validation macro-F1 on F3_context_only; models within 0.001 of the best are tied and ranked by High-class F1, then training time",
+    "validation_metrics": {
+      "n": 15000,
+      "accuracy": 0.6262666666666666,
+      "balanced_accuracy": 0.3335149956248224,
+      "macro_precision": 0.3330566858188723,
+      "macro_recall": 0.3335149956248224,
+      "macro_f1": 0.3329163232834664,
+      "weighted_f1": 0.6321749579311412,
+      "log_loss": 1.0093961346224303,
+      "brier": 0.6090590880398158,
+      "ece_top_label": 0.24971726558569624,
+      "confusion_matrix": [
+        [
+          8725,
+          2543,
+          340
+        ],
+        [
+          2177,
+          658,
+          76
+        ],
+        [
+          366,
+          104,
+          11
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n         Low     0.7743    0.7516    0.7628     11608\n      Medium     0.1991    0.2260    0.2117      2911\n        High     0.0258    0.0229    0.0242       481\n\n    accuracy                         0.6263     15000\n   macro avg     0.3331    0.3335    0.3329     15000\nweighted avg     0.6387    0.6263    0.6322     15000\n",
+      "precision_Low": 0.7743166489172879,
+      "recall_Low": 0.7516368022053757,
+      "f1_Low": 0.7628081832488197,
+      "support_Low": 11608,
+      "precision_Medium": 0.19909228441754917,
+      "recall_Medium": 0.2260391618000687,
+      "f1_Medium": 0.21171171171171171,
+      "support_Medium": 2911,
+      "precision_High": 0.02576112412177986,
+      "recall_High": 0.02286902286902287,
+      "f1_High": 0.024229074889867842,
+      "support_High": 481
+    },
+    "test_metrics": {
+      "n": 15000,
+      "accuracy": 0.6353333333333333,
+      "balanced_accuracy": 0.3384493726487048,
+      "macro_precision": 0.33797902795377205,
+      "macro_recall": 0.3384493726487048,
+      "macro_f1": 0.3378386437354455,
+      "weighted_f1": 0.6424033878942527,
+      "log_loss": 1.00736692279029,
+      "brier": 0.6077298742120831,
+      "ece_top_label": 0.2582840291796972,
+      "confusion_matrix": [
+        [
+          8881,
+          2479,
+          368
+        ],
+        [
+          2106,
+          634,
+          69
+        ],
+        [
+          358,
+          90,
+          15
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n         Low     0.7828    0.7572    0.7698     11728\n      Medium     0.1979    0.2257    0.2109      2809\n        High     0.0332    0.0324    0.0328       463\n\n    accuracy                         0.6353     15000\n   macro avg     0.3380    0.3384    0.3378     15000\nweighted avg     0.6501    0.6353    0.6424     15000\n",
+      "precision_Low": 0.7828118113706478,
+      "recall_Low": 0.7572476125511596,
+      "f1_Low": 0.7698175356477268,
+      "support_Low": 11728,
+      "precision_Medium": 0.1979394317827037,
+      "recall_Medium": 0.22570309718761125,
+      "f1_Medium": 0.2109115103127079,
+      "support_Medium": 2809,
+      "precision_High": 0.033185840707964605,
+      "recall_High": 0.032397408207343416,
+      "f1_High": 0.03278688524590164,
+      "support_High": 463
+    },
+    "note": "Same task WITHOUT Error_Rate_% and Production_Speed. Tests whether sensor/network/quality data carry any signal."
+  },
+  "baseline_majority_test": {
+    "n": 15000,
+    "accuracy": 0.7818666666666667,
+    "balanced_accuracy": 0.3333333333333333,
+    "macro_precision": 0.26062222222222226,
+    "macro_recall": 0.3333333333333333,
+    "macro_f1": 0.2925271874688217,
+    "weighted_f1": 0.6861517709268682,
+    "log_loss": 4.52043505456591,
+    "brier": 0.4362666662304,
+    "ece_top_label": 0.2181333333333333,
+    "confusion_matrix": [
+      [
+        11728,
+        0,
+        0
+      ],
+      [
+        2809,
+        0,
+        0
+      ],
+      [
+        463,
+        0,
+        0
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n         Low     0.7819    1.0000    0.8776     11728\n      Medium     0.0000    0.0000    0.0000      2809\n        High     0.0000    0.0000    0.0000       463\n\n    accuracy                         0.7819     15000\n   macro avg     0.2606    0.3333    0.2925     15000\nweighted avg     0.6113    0.7819    0.6862     15000\n",
+    "precision_Low": 0.7818666666666667,
+    "recall_Low": 1.0,
+    "f1_Low": 0.8775815624064651,
+    "support_Low": 11728,
+    "precision_Medium": 0.0,
+    "recall_Medium": 0.0,
+    "f1_Medium": 0.0,
+    "support_Medium": 2809,
+    "precision_High": 0.0,
+    "recall_High": 0.0,
+    "f1_High": 0.0,
+    "support_High": 463
+  },
+  "label_rule": {
+    "High": "Error_Rate_% <= 2  AND  Production_Speed_units_per_hr > 400",
+    "Medium": "Error_Rate_% <= 5  AND  Production_Speed_units_per_hr > 200  (and not High)",
+    "Low": "everything else"
+  },
+  "label_rule_agreement": 0.99998,
+  "simulated_live_monitoring_note": "The CSV is historical; 'live monitoring' in the dashboard replays recorded rows."
+}

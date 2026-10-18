@@ -1,0 +1,437 @@
+{
+  "shape": {
+    "rows": 100000,
+    "columns": 14
+  },
+  "columns": [
+    "Date",
+    "Timestamp",
+    "Machine_ID",
+    "Operation_Mode",
+    "Temperature_C",
+    "Vibration_Hz",
+    "Power_Consumption_kW",
+    "Network_Latency_ms",
+    "Packet_Loss_%",
+    "Quality_Control_Defect_Rate_%",
+    "Production_Speed_units_per_hr",
+    "Predictive_Maintenance_Score",
+    "Error_Rate_%",
+    "Efficiency_Status"
+  ],
+  "columns_match_expected": true,
+  "dtypes": {
+    "Date": "str",
+    "Timestamp": "str",
+    "Machine_ID": "int64",
+    "Operation_Mode": "str",
+    "Temperature_C": "float64",
+    "Vibration_Hz": "float64",
+    "Power_Consumption_kW": "float64",
+    "Network_Latency_ms": "float64",
+    "Packet_Loss_%": "float64",
+    "Quality_Control_Defect_Rate_%": "float64",
+    "Production_Speed_units_per_hr": "float64",
+    "Predictive_Maintenance_Score": "float64",
+    "Error_Rate_%": "float64",
+    "Efficiency_Status": "str"
+  },
+  "missing_values": {
+    "Date": 0,
+    "Timestamp": 0,
+    "Machine_ID": 0,
+    "Operation_Mode": 0,
+    "Temperature_C": 0,
+    "Vibration_Hz": 0,
+    "Power_Consumption_kW": 0,
+    "Network_Latency_ms": 0,
+    "Packet_Loss_%": 0,
+    "Quality_Control_Defect_Rate_%": 0,
+    "Production_Speed_units_per_hr": 0,
+    "Predictive_Maintenance_Score": 0,
+    "Error_Rate_%": 0,
+    "Efficiency_Status": 0
+  },
+  "duplicate_rows": 0,
+  "duplicate_rows_ignoring_date_time": 0,
+  "unique": {
+    "machines": 50,
+    "machine_id_range": [
+      1,
+      50
+    ],
+    "operation_modes": {
+      "Active": 70054,
+      "Idle": 20057,
+      "Maintenance": 9889
+    },
+    "dates": 69,
+    "timestamps_of_day": 1440
+  },
+  "target_distribution": {
+    "Low": 77825,
+    "Medium": 19189,
+    "High": 2986
+  },
+  "target_distribution_pct": {
+    "Low": 77.825,
+    "Medium": 19.189,
+    "High": 2.986
+  },
+  "unexpected_target_values": [],
+  "unexpected_operation_modes": [],
+  "numeric_statistics": {
+    "Temperature_C": {
+      "count": 100000.0,
+      "mean": 60.0415,
+      "std": 17.3232,
+      "min": 30.0,
+      "25%": 45.0315,
+      "50%": 60.0335,
+      "75%": 74.9673,
+      "max": 89.999
+    },
+    "Vibration_Hz": {
+      "count": 100000.0,
+      "mean": 2.55,
+      "std": 1.4141,
+      "min": 0.1,
+      "25%": 1.323,
+      "50%": 2.549,
+      "75%": 3.776,
+      "max": 5.0
+    },
+    "Power_Consumption_kW": {
+      "count": 100000.0,
+      "mean": 5.7459,
+      "std": 2.4513,
+      "min": 1.5,
+      "25%": 3.627,
+      "50%": 5.755,
+      "75%": 7.86,
+      "max": 10.0
+    },
+    "Network_Latency_ms": {
+      "count": 100000.0,
+      "mean": 25.5556,
+      "std": 14.1208,
+      "min": 1.0,
+      "25%": 13.355,
+      "50%": 25.536,
+      "75%": 37.7962,
+      "max": 50.0
+    },
+    "Packet_Loss_%": {
+      "count": 100000.0,
+      "mean": 2.4934,
+      "std": 1.4433,
+      "min": 0.0,
+      "25%": 1.245,
+      "50%": 2.488,
+      "75%": 3.741,
+      "max": 5.0
+    },
+    "Quality_Control_Defect_Rate_%": {
+      "count": 100000.0,
+      "mean": 5.0088,
+      "std": 2.8837,
+      "min": 0.0,
+      "25%": 2.5218,
+      "50%": 5.0035,
+      "75%": 7.506,
+      "max": 10.0
+    },
+    "Production_Speed_units_per_hr": {
+      "count": 100000.0,
+      "mean": 275.9163,
+      "std": 130.0969,
+      "min": 50.0,
+      "25%": 162.8738,
+      "50%": 276.649,
+      "75%": 388.8125,
+      "max": 499.997
+    },
+    "Predictive_Maintenance_Score": {
+      "count": 100000.0,
+      "mean": 0.4994,
+      "std": 0.2888,
+      "min": 0.0,
+      "25%": 0.248,
+      "50%": 0.499,
+      "75%": 0.749,
+      "max": 1.0
+    },
+    "Error_Rate_%": {
+      "count": 100000.0,
+      "mean": 7.5041,
+      "std": 4.3359,
+      "min": 0.0,
+      "25%": 3.75,
+      "50%": 7.504,
+      "75%": 11.273,
+      "max": 15.0
+    }
+  },
+  "outliers_and_shape": {
+    "Temperature_C": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 30.0,
+      "max": 89.999,
+      "ks_distance_to_uniform": 0.001985063417723698,
+      "skewness": -0.0009459318327565314
+    },
+    "Vibration_Hz": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 0.1,
+      "max": 5.0,
+      "ks_distance_to_uniform": 0.001901836734693907,
+      "skewness": -1.5434440330329594e-05
+    },
+    "Power_Consumption_kW": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 1.5,
+      "max": 10.0,
+      "ks_distance_to_uniform": 0.002113529411764681,
+      "skewness": -0.0008846380982722342
+    },
+    "Network_Latency_ms": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 1.0,
+      "max": 50.0,
+      "ks_distance_to_uniform": 0.0030589795918367635,
+      "skewness": -0.0008736632071003054
+    },
+    "Packet_Loss_%": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 0.0,
+      "max": 5.0,
+      "ks_distance_to_uniform": 0.0035399999999999876,
+      "skewness": 0.008406393119619927
+    },
+    "Quality_Control_Defect_Rate_%": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 0.0,
+      "max": 10.0,
+      "ks_distance_to_uniform": 0.0026800000000000157,
+      "skewness": 0.0004939300351742573
+    },
+    "Production_Speed_units_per_hr": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 50.0,
+      "max": 499.997,
+      "ks_distance_to_uniform": 0.0047558958615279145,
+      "skewness": -0.010181711415243476
+    },
+    "Predictive_Maintenance_Score": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 0.0,
+      "max": 1.0,
+      "ks_distance_to_uniform": 0.0028499999999999637,
+      "skewness": 0.002893855259826433
+    },
+    "Error_Rate_%": {
+      "iqr_outliers": 0,
+      "outside_plausible_limits": 0,
+      "min": 0.0,
+      "max": 15.0,
+      "ks_distance_to_uniform": 0.002063333333333306,
+      "skewness": 0.0009290632273268554
+    }
+  },
+  "all_features_look_uniform": true,
+  "datetime": {
+    "format_used": "%d-%m-%Y %H:%M:%S",
+    "unparseable": 0,
+    "first": "2025-01-01 00:00:00",
+    "last": "2025-03-10 10:39:00",
+    "file_order_is_time_order_except": {
+      "86400": -1439.0
+    },
+    "one_minute_steps": 99998,
+    "duplicated_timestamps": 1440,
+    "rows_per_date_not_1440": {
+      "01-03-2025": 2880,
+      "10-03-2025": 640
+    },
+    "likely_explanation": "The date label 01-03-2025 holds 2 days of records and the clock resets inside it. A likely explanation is that a non-existent date (29-02-2025; 2025 is not a leap year) was rolled over to 01-03-2025 by the data generator. This is a hypothesis, not a proven fact.",
+    "handling": "Sort/split/rolling use file order (obs_seq); the recorded Date is kept for display and filtering."
+  },
+  "machine_coverage": {
+    "rows_per_machine_min": 1906,
+    "rows_per_machine_max": 2092,
+    "rows_per_machine_mean": 2000.0,
+    "median_gap_between_records_of_same_machine_minutes": 35.0,
+    "mean_gap_minutes": 49.97330665332667,
+    "note": "Each minute holds ONE record from a randomly different machine, so a machine's own history is sparse and irregular."
+  },
+  "feature_correlation_max_abs_offdiagonal": 0.0075461389141490386,
+  "spearman_corr_with_efficiency_ordinal": {
+    "Temperature_C": 0.003845027200897788,
+    "Vibration_Hz": 0.00039025416047504713,
+    "Power_Consumption_kW": 0.0019851631338074043,
+    "Network_Latency_ms": -0.0010078489311487575,
+    "Packet_Loss_%": -9.86110507145118e-05,
+    "Quality_Control_Defect_Rate_%": -0.005375193881021649,
+    "Production_Speed_units_per_hr": 0.3139447766680324,
+    "Predictive_Maintenance_Score": -0.0030219092059766816,
+    "Error_Rate_%": -0.6194314720455664
+  },
+  "feature_vs_label": {
+    "Temperature_C": {
+      "kruskal_H": 1.4946830656933863,
+      "kruskal_p": 0.4736239943988947,
+      "eta_squared": 1.4909340877091518e-05,
+      "mutual_information": 0.0017069118444310583,
+      "mean_Low": 60.00639225184709,
+      "mean_Medium": 60.1539896815884,
+      "mean_High": 60.232276289350295
+    },
+    "Vibration_Hz": {
+      "kruskal_H": 0.03177819797162531,
+      "kruskal_p": 0.9842364668253006,
+      "eta_squared": 3.1430252775253076e-07,
+      "mutual_information": 0.0014357451711692892,
+      "mean_Low": 2.5496413491808543,
+      "mean_Medium": 2.551512741674918,
+      "mean_High": 2.5482545210984595
+    },
+    "Power_Consumption_kW": {
+      "kruskal_H": 1.3206191809053227,
+      "kruskal_p": 0.5166913470196701,
+      "eta_squared": 1.3235103872489126e-05,
+      "mutual_information": 0.0009612311245490446,
+      "mean_Low": 5.743001696113074,
+      "mean_Medium": 5.7620919276668925,
+      "mean_High": 5.71834058941728
+    },
+    "Network_Latency_ms": {
+      "kruskal_H": 0.7609912044975279,
+      "kruskal_p": 0.6835225699317975,
+      "eta_squared": 7.617096988700783e-06,
+      "mutual_information": 0.003494349095241489,
+      "mean_Low": 25.561502961773208,
+      "mean_Medium": 25.566286153525457,
+      "mean_High": 25.333739450770263
+    },
+    "Packet_Loss_%": {
+      "kruskal_H": 2.1277591436773644,
+      "kruskal_p": 0.3451143140231802,
+      "eta_squared": 2.1141436151526407e-05,
+      "mutual_information": 0.0,
+      "mean_Low": 2.4937891551557985,
+      "mean_Medium": 2.4865887748189066,
+      "mean_High": 2.5276453449430676
+    },
+    "Quality_Control_Defect_Rate_%": {
+      "kruskal_H": 3.6900441257281877,
+      "kruskal_p": 0.15802183443693035,
+      "eta_squared": 3.6821333063170426e-05,
+      "mutual_information": 0.0034360995384996595,
+      "mean_Low": 5.016671892065531,
+      "mean_Medium": 4.989105216530304,
+      "mean_High": 4.930401540522438
+    },
+    "Production_Speed_units_per_hr": {
+      "kruskal_H": 11268.276547289279,
+      "kruskal_p": 0.0,
+      "eta_squared": 0.11276582671085865,
+      "mutual_information": 0.13933308698277047,
+      "mean_Low": 254.8543969932541,
+      "mean_Medium": 334.1250665485435,
+      "mean_High": 450.79136905559284
+    },
+    "Predictive_Maintenance_Score": {
+      "kruskal_H": 1.1998937292499976,
+      "kruskal_p": 0.5488407981808776,
+      "eta_squared": 1.2055554651603308e-05,
+      "mutual_information": 0.003577565057952148,
+      "mean_Low": 0.49982789592033405,
+      "mean_Medium": 0.4982967846161863,
+      "mean_High": 0.49480743469524446
+    },
+    "Error_Rate_%": {
+      "kruskal_H": 38381.27514562484,
+      "kruskal_p": 0.0,
+      "eta_squared": 0.38357983161779763,
+      "mutual_information": 0.35400650335035344,
+      "mean_Low": 8.929863642788307,
+      "mean_Medium": 2.7326327062379487,
+      "mean_High": 1.0070087073007368
+    }
+  },
+  "independence_tests": {
+    "operation_mode_vs_efficiency": {
+      "chi2": 3.5847755909298806,
+      "p": 0.4651056360071404
+    },
+    "machine_vs_efficiency": {
+      "chi2": 89.7864311823802,
+      "p": 0.710874762704529
+    },
+    "week_vs_efficiency": {
+      "chi2": 26.295622562479135,
+      "p": 0.15626887152092536
+    }
+  },
+  "label_derivation": {
+    "tree_accuracy_by_depth_test": {
+      "1": 0.8577,
+      "2": 0.9685333333333334,
+      "3": 0.9685333333333334,
+      "4": 1.0,
+      "6": 1.0
+    },
+    "depth4_tree_feature_importance": {
+      "Error_Rate_%": 0.5869,
+      "Production_Speed_units_per_hr": 0.4131,
+      "Vibration_Hz": 0.0,
+      "Temperature_C": 0.0,
+      "Power_Consumption_kW": 0.0,
+      "Network_Latency_ms": 0.0,
+      "Quality_Control_Defect_Rate_%": 0.0,
+      "Packet_Loss_%": 0.0,
+      "Predictive_Maintenance_Score": 0.0,
+      "mode_code": 0.0
+    },
+    "depth4_tree_rules": "|--- Error_Rate_% <= 5.00\n|   |--- Production_Speed_units_per_hr <= 200.00\n|   |   |--- class: 0\n|   |--- Production_Speed_units_per_hr >  200.00\n|   |   |--- Production_Speed_units_per_hr <= 400.12\n|   |   |   |--- class: 1\n|   |   |--- Production_Speed_units_per_hr >  400.12\n|   |   |   |--- Error_Rate_% <= 2.00\n|   |   |   |   |--- class: 2\n|   |   |   |--- Error_Rate_% >  2.00\n|   |   |   |   |--- class: 1\n|--- Error_Rate_% >  5.00\n|   |--- class: 0\n",
+    "tree_depth4_test_accuracy_by_inputs": {
+      "Error_Rate_% only": 0.8576666666666667,
+      "Production_Speed only": 0.7777333333333334,
+      "both (Error_Rate_% + Production_Speed)": 1.0,
+      "all other 7 measurements + mode (no Error_Rate_%, no Speed)": 0.7778
+    },
+    "rule": {
+      "High": "Error_Rate_% <= 2  AND  Production_Speed_units_per_hr > 400",
+      "Medium": "Error_Rate_% <= 5  AND  Production_Speed_units_per_hr > 200  (and not High)",
+      "Low": "everything else"
+    },
+    "rule_agreement": 0.99998,
+    "rule_mismatches": 2,
+    "mismatch_rows": [
+      {
+        "obs_seq": 15583,
+        "Error_Rate_%": 5.0,
+        "Production_Speed_units_per_hr": 436.121,
+        "Efficiency_Status": "Low",
+        "rule_says": "Medium"
+      },
+      {
+        "obs_seq": 32704,
+        "Error_Rate_%": 5.0,
+        "Production_Speed_units_per_hr": 402.746,
+        "Efficiency_Status": "Low",
+        "rule_says": "Medium"
+      }
+    ],
+    "majority_class_accuracy_test": 0.7778666666666667,
+    "conclusion": "Efficiency_Status is (to within the listed mismatches) a deterministic function of Error_Rate_% and Production_Speed_units_per_hr. Any model that receives these two columns can reproduce the label, which demonstrates recovery of the labelling rule - not independent prediction of efficiency from sensors or the network."
+  }
+}

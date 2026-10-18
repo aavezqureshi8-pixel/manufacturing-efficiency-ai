@@ -1,0 +1,11 @@
+feature,f1_drop_mean,f1_drop_std,balanced_acc_drop_mean
+Error_Rate_%,0.57916989326931,0.015590096272122256,0.577737341849593
+Production_Speed_units_per_hr,0.4200839344781496,0.00930787192599134,0.41829091032474697
+Vibration_Hz,0.0,0.0,0.0
+Temperature_C,0.0,0.0,0.0
+Power_Consumption_kW,0.0,0.0,0.0
+Network_Latency_ms,0.0,0.0,0.0
+Quality_Control_Defect_Rate_%,0.0,0.0,0.0
+Packet_Loss_%,0.0,0.0,0.0
+Predictive_Maintenance_Score,0.0,0.0,0.0
+Operation_Mode,0.0,0.0,0.0

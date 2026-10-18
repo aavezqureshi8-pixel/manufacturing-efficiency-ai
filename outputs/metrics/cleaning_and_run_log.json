@@ -1,0 +1,32 @@
+{
+  "cleaning_log": [
+    {
+      "step": "duplicates",
+      "detail": "Removed exact duplicate rows (all 14 columns equal)",
+      "rows_removed": 0
+    },
+    {
+      "step": "categories",
+      "detail": "Operation_Mode / Efficiency_Status stripped + title-cased; unexpected categories -> missing",
+      "unexpected_operation_modes": 0,
+      "unexpected_target_values": 0
+    },
+    {
+      "step": "numeric validation",
+      "detail": "Non-numeric or physically impossible values set to missing (imputed with TRAIN medians inside the pipeline)",
+      "invalid_values": 0
+    },
+    {
+      "step": "label check",
+      "detail": "Rows without a valid Efficiency_Status removed",
+      "rows_removed": 0
+    },
+    {
+      "step": "ordering",
+      "detail": "Sorted by file order (verified to be one-minute steps); the recorded Date label is kept for display. Two-day block labelled 01-03-2025 is NOT altered.",
+      "rows_final": 100000,
+      "rows_initial": 100000
+    }
+  ],
+  "elapsed_seconds": 355.34558844566345
+}
